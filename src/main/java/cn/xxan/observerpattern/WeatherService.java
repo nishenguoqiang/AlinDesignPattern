@@ -16,17 +16,18 @@ public class WeatherService implements IWeatherService {
         clients.remove(client);
     }
 
-    public void notify(Client client) {
-        Iterator<WeatherInfo> iterator = weatherInfos.iterator();
+    public void notifyClient() {
+        Iterator<Client> iterator = clients.iterator();
         while (iterator.hasNext()) {
-            for (Client c : clients) {
-                c.getWeather(iterator.next());
-            }
+            iterator.next().getWeather(weatherInfos.getFirst());
         }
     }
 
-    public void updateWeather(Client client) {
-        if (weatherInfos.iterator().next().equals(client)) return;
-        notify(client);
+    public void updateWeather(WeatherInfo weatherInfo) {
+        if (weatherInfos.size() > 0){
+            if (weatherInfos.iterator().next().equals(weatherInfo)) return;
+        }
+        weatherInfos.add(weatherInfo);
+        notifyClient();
     }
 }

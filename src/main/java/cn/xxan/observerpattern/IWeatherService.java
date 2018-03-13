@@ -8,8 +8,8 @@ public interface IWeatherService {
 
     void delete(Client client);  //删除客户端
 
-    void notify(Client client); //通知客户端
+    void notifyClient(); //通知客户端
 
-    void updateWeather(Client client);  //更新天气
+    void updateWeather(WeatherInfo weatherInfo);  //更新天气
 
 }

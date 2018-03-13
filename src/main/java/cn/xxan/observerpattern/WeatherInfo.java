@@ -8,6 +8,12 @@ import java.util.Objects;
  */
 public class WeatherInfo {
     private Date time;
+    private String weather;
+
+    public WeatherInfo(Date time, String weather) {
+        this.time = time;
+        this.weather = weather;
+    }
 
     public String getWeather() {
         return weather;
@@ -17,7 +23,6 @@ public class WeatherInfo {
         this.weather = weather;
     }
 
-    private String weather;
 
     public Date getTime() {
         return time;
